@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class MovieService {
 	@Transactional(readOnly = true)
 	public List<Movie> findAll()
 	{
-		return (List<Movie>) iMovieDao.findAll();
+		return iMovieDao.findAll();
 	}
 	
 	@Transactional
@@ -28,9 +29,9 @@ public class MovieService {
 	}
 	
 	@Transactional(readOnly = true)
-	public Movie findOne(Long id)
+	public Optional<Movie> findOne(Long id)
 	{
-		return iMovieDao.findById(id).orElse(null);
+		return iMovieDao.findById(id);
 	}
 	
 	@Transactional

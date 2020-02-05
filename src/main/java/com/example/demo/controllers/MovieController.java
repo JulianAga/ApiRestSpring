@@ -16,7 +16,7 @@ import com.example.demo.models.Movie;
 import com.example.demo.services.MovieService;
 
 @RestController
-@RequestMapping("/movies")
+@RequestMapping("/movie")
 public class MovieController {
 
 	@Autowired
